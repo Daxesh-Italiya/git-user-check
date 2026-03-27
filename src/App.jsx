@@ -1,4 +1,4 @@
-import React, { useState, useCallback, useRef, useMemo } from "react";
+import React, { useState, useCallback, useRef } from "react";
 import {
   Card,
   Tabs,
@@ -35,7 +35,7 @@ import {
 const { Title } = Typography;
 
 function App() {
-  const { mode, toggleTheme, theme } = useTheme();
+  const { mode, theme } = useTheme();
   const [modal, contextHolder] = Modal.useModal();
 
   // Authentication state
@@ -418,7 +418,7 @@ function App() {
         );
         newCollabMap.set(repo.id, collaborators);
       } catch (error) {
-        console.warn(`Failed to refresh collaborators for ${repo.name}`);
+        console.warn(`Failed to refresh collaborators for ${repo.name}`, error);
       }
     }
     setCollaboratorsMap(newCollabMap);
@@ -453,7 +453,10 @@ function App() {
     return (
       <ConfigProvider
         theme={{
-          algorithm: mode === "dark" ? antdTheme.darkAlgorithm : antdTheme.defaultAlgorithm,
+          algorithm:
+            mode === "dark"
+              ? antdTheme.darkAlgorithm
+              : antdTheme.defaultAlgorithm,
           token: {
             colorPrimary: theme.colors.primary,
             colorSuccess: theme.colors.success,
@@ -462,6 +465,9 @@ function App() {
             colorInfo: theme.colors.info,
             colorTextBase: theme.colors.text,
             colorBgBase: theme.colors.background,
+            colorBgElevated: theme.colors.background,
+            colorBgSpotlight: theme.colors.background,
+            colorTextLightSolid: theme.colors.text,
             borderRadius: parseInt(theme.borderRadius.md),
           },
           components: {
@@ -472,12 +478,8 @@ function App() {
               headerBg: theme.colors.background,
               contentBg: theme.colors.background,
             },
-            Tooltip: {
-              colorBgDefault: theme.colors.background,
-              colorTextDefault: theme.colors.text,
-            },
             Message: {
-              colorBgDefault: theme.colors.background,
+              contentBg: theme.colors.background,
             },
           },
         }}
@@ -496,7 +498,10 @@ function App() {
     return (
       <ConfigProvider
         theme={{
-          algorithm: mode === "dark" ? antdTheme.darkAlgorithm : antdTheme.defaultAlgorithm,
+          algorithm:
+            mode === "dark"
+              ? antdTheme.darkAlgorithm
+              : antdTheme.defaultAlgorithm,
           token: {
             colorPrimary: theme.colors.primary,
             colorSuccess: theme.colors.success,
@@ -505,6 +510,8 @@ function App() {
             colorInfo: theme.colors.info,
             colorTextBase: theme.colors.text,
             colorBgBase: theme.colors.background,
+            colorBgSpotlight: theme.colors.background,
+            colorTextLightSolid: theme.colors.text,
             borderRadius: parseInt(theme.borderRadius.md),
           },
           components: {
@@ -515,12 +522,8 @@ function App() {
               headerBg: theme.colors.background,
               contentBg: theme.colors.background,
             },
-            Tooltip: {
-              colorBgDefault: theme.colors.background,
-              colorTextDefault: theme.colors.text,
-            },
             Message: {
-              colorBgDefault: theme.colors.background,
+              contentBg: theme.colors.background,
             },
           },
         }}
@@ -544,7 +547,10 @@ function App() {
     return (
       <ConfigProvider
         theme={{
-          algorithm: mode === "dark" ? antdTheme.darkAlgorithm : antdTheme.defaultAlgorithm,
+          algorithm:
+            mode === "dark"
+              ? antdTheme.darkAlgorithm
+              : antdTheme.defaultAlgorithm,
           token: {
             colorPrimary: theme.colors.primary,
             colorSuccess: theme.colors.success,
@@ -553,6 +559,8 @@ function App() {
             colorInfo: theme.colors.info,
             colorTextBase: theme.colors.text,
             colorBgBase: theme.colors.background,
+            colorBgSpotlight: theme.colors.background,
+            colorTextLightSolid: theme.colors.text,
             borderRadius: parseInt(theme.borderRadius.md),
           },
           components: {
@@ -563,12 +571,8 @@ function App() {
               headerBg: theme.colors.background,
               contentBg: theme.colors.background,
             },
-            Tooltip: {
-              colorBgDefault: theme.colors.background,
-              colorTextDefault: theme.colors.text,
-            },
             Message: {
-              colorBgDefault: theme.colors.background,
+              contentBg: theme.colors.background,
             },
           },
         }}
@@ -590,7 +594,10 @@ function App() {
   return (
     <ConfigProvider
       theme={{
-        algorithm: mode === "dark" ? antdTheme.darkAlgorithm : antdTheme.defaultAlgorithm,
+        algorithm:
+          mode === "dark"
+            ? antdTheme.darkAlgorithm
+            : antdTheme.defaultAlgorithm,
         token: {
           colorPrimary: theme.colors.primary,
           colorSuccess: theme.colors.success,
@@ -599,6 +606,8 @@ function App() {
           colorInfo: theme.colors.info,
           colorTextBase: theme.colors.text,
           colorBgBase: theme.colors.background,
+          colorBgSpotlight: theme.colors.background,
+          colorTextLightSolid: theme.colors.text,
           borderRadius: parseInt(theme.borderRadius.md),
           optionSelectedBg: "#333333",
         },
@@ -610,12 +619,8 @@ function App() {
             headerBg: theme.colors.background,
             contentBg: theme.colors.background,
           },
-          Tooltip: {
-            colorBgDefault: theme.colors.background,
-            colorTextDefault: theme.colors.text,
-          },
           Message: {
-            colorBgDefault: theme.colors.background,
+            contentBg: theme.colors.background,
           },
         },
       }}
