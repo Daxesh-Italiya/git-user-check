@@ -1,0 +1,285 @@
+/* Glassmorphism Effects - Pure Glass */
+:global(.ant-input),
+:global(.ant-input-password input),
+:global(.ant-select-selector),
+:global(.ant-picker) {
+  background-color: rgba(255, 255, 255, 0.03) !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  color: var(--color-text) !important;
+  box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.2), 0 0 20px rgba(255, 255, 255, 0.05) !important;
+}
+
+:global(.ant-input:focus),
+:global(.ant-input-password input:focus),
+:global(.ant-input-focused),
+:global(.ant-select-focused .ant-select-selector),
+:global(.ant-picker-focused .ant-picker-input){
+  background-color: rgba(255, 255, 255, 0) !important;
+  border-color: rgba(255, 255, 255, 0.3) !important;
+  box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.3), 0 0 30px rgba(53, 183, 41, 0.2) !important;
+}
+
+.ant-input, .ant-select-selector, .ant-picker {
+    background-color: rgba(255, 255, 255, 0.03) !important;
+    border-color: rgba(255, 255, 255, 0.2) !important;
+    color: var(--color-text) !important;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+}
+
+:global(.ant-input::placeholder) {
+  color: rgba(255, 255, 255, 0.3) !important;
+}
+
+/* Primary Button Styling - No shadow/elevation */
+:global(.ant-btn),
+:global(.ant-btn-primary),
+:global(.ant-btn-default),
+:global(.ant-btn-dashed),
+:global(.ant-btn-text),
+:global(.ant-btn-link) {
+  box-shadow: none !important;
+}
+
+:global(.ant-btn-primary) {
+  background: var(--color-primary) !important;
+  border-color: var(--color-primary) !important;
+  font-weight: 500;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: none !important;
+}
+
+:global(.ant-btn-primary:hover) {
+  background: var(--color-primaryHover) !important;
+  border-color: var(--color-primaryHover) !important;
+  transform: translateY(-1px);
+  box-shadow: none !important;
+}
+
+:global(.ant-btn-primary:active) {
+  box-shadow: none !important;
+}
+
+/* Card Glassmorphism - Pure Glass */
+:global(.ant-card) {
+  background-color: rgba(255, 255, 255, 0.05) !important;
+  border: 1px solid rgba(255, 255, 255, 0.25) !important;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: 12px;
+  box-shadow: 0 8px 32px 0 rgba(20, 80, 15, 0.37),
+              inset 0 1px 1px rgba(255, 255, 255, 0.3),
+              inset 0 -1px 1px rgba(0, 0, 0, 0.1) !important;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+:global(.ant-card:hover) {
+  box-shadow: 0 12px 48px 0 rgba(20, 80, 15, 0.5),
+              inset 0 1px 1px rgba(255, 255, 255, 0.3),
+              inset 0 -1px 1px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Professional Table Row Styling */
+:global(.user-table-row),
+:global(.repo-table-row) {
+  transition: all 0.2s ease;
+}
+
+:global(.user-table-row:hover),
+:global(.repo-table-row:hover) {
+  background-color: rgba(0, 0, 0, 0.02) !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+/* Table Header Styling */
+:global(.ant-table-thead > tr > th) {
+  background-color: var(--color-bgPrimary) !important;
+  font-weight: 600 !important;
+  font-size: 13px !important;
+  color: var(--color-text) !important;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border-bottom: 2px solid var(--color-border) !important;
+}
+
+/* Table Row Padding */
+:global(.ant-table tbody > tr > td) {
+  padding: 12px 16px !important;
+  vertical-align: middle;
+}
+
+:global(.ant-table-row) {
+  border-bottom: 1px solid var(--color-border) !important;
+}
+
+/* Avatar Enhancement */
+:global(.ant-avatar) {
+  background: linear-gradient(135deg, var(--color-primary), var(--color-info));
+  border: 2px solid var(--color-border);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Button Styling Consistency */
+:global(.ant-btn-primary) {
+  background: var(--color-primary) !important;
+  border-color: var(--color-primary) !important;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+:global(.ant-btn-primary:hover) {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(53, 183, 41, 0.3);
+}
+
+/* Badge Enhancement */
+:global(.ant-badge-count) {
+  font-weight: 600;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+}
+
+/* Tab Styling */
+:global(.ant-tabs-tab) {
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+:global(.ant-tabs-tab-active .ant-tabs-tab-btn) {
+  color: var(--color-primary) !important;
+  font-weight: 600;
+}
+
+/* Card Styling - Remove default shadows */
+:global(.ant-card) {
+  border-radius: 8px;
+  box-shadow: none !important;
+  transition: all 0.2s ease;
+}
+
+:global(.ant-card:hover) {
+  box-shadow: none !important;
+}
+
+:global(.ant-card-bordered) {
+  box-shadow: none !important;
+  border: 1px solid var(--color-border);
+}
+
+/* Pagination Styling */
+:global(.ant-pagination-item-active) {
+  background-color: var(--color-primary) !important;
+  border-color: var(--color-primary) !important;
+}
+
+/* Smooth Transition Effects */
+:global(.ant-btn),
+:global(.ant-tag),
+:global(.ant-badge) {
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+  :global(.user-table-row:hover),
+  :global(.repo-table-row:hover) {
+    background-color: rgba(255, 255, 255, 0.05) !important;
+  }
+
+  :global(.ant-card) {
+    background-color: var(--color-bgPrimary);
+  }
+}
+
+/* Loading State */
+:global(.ant-spin) {
+  color: var(--color-primary);
+}
+
+:global(.ant-spin-dot-item) {
+  background-color: var(--color-primary);
+}
+
+
+
+
+#next-steps ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  gap: 8px;
+  margin: 32px 0 0;
+
+  .logo {
+    height: 18px;
+  }
+
+  a {
+    color: var(--text-h);
+    font-size: 16px;
+    border-radius: 6px;
+    background: var(--social-bg);
+    display: flex;
+    padding: 6px 12px;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    transition: box-shadow 0.3s;
+
+    &:hover {
+      box-shadow: var(--shadow);
+    }
+    .button-icon {
+      height: 18px;
+      width: 18px;
+    }
+  }
+
+  @media (max-width: 1024px) {
+    margin-top: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    li {
+      flex: 1 1 calc(50% - 8px);
+    }
+
+    a {
+      width: 100%;
+      justify-content: center;
+      box-sizing: border-box;
+    }
+  }
+}
+
+#spacer {
+  height: 88px;
+  border-top: 1px solid var(--border);
+  @media (max-width: 1024px) {
+    height: 48px;
+  }
+}
+
+.ticks {
+  position: relative;
+  width: 100%;
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    top: -4.5px;
+    border: 5px solid transparent;
+  }
+
+  &::before {
+    left: 0;
+    border-left-color: var(--border);
+  }
+  &::after {
+    right: 0;
+    border-right-color: var(--border);
+  }
+}
