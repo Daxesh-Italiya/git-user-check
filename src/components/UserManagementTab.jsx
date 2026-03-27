@@ -8,12 +8,14 @@ import {
   Typography,
   Badge,
   Tooltip,
+  Popconfirm,
 } from "antd";
 import {
   EyeOutlined,
   DeleteOutlined,
   UserAddOutlined,
   BankOutlined,
+  ExclamationCircleOutlined,
 } from "@ant-design/icons";
 import { useAdvancedFilter } from "../hooks/useAdvancedFilter";
 import SearchFilterPanel from "./SearchFilterPanel";
@@ -30,6 +32,7 @@ const UserManagementTab = ({
   onAddUser,
   loading,
 }) => {
+  const [removingUser, setRemovingUser] = useState(null);
   // Get unique organizations from repos
   const organizationsList = useMemo(() => {
     const orgs = new Set();
@@ -214,18 +217,35 @@ const UserManagementTab = ({
           </Tooltip>
 
           <Tooltip title="Remove from all repositories">
-            <Button
-              danger
-              icon={<DeleteOutlined />}
-              onClick={() => onRemoveFromAll(record.user.login)}
-              size="small"
-              style={{
-                fontSize: "12px",
-                height: "32px",
+            <Popconfirm
+              title="Remove from all repositories"
+              description={`Are you sure you want to remove ${record.user.login} from all repositories?`}
+              onConfirm={async () => {
+                setRemovingUser(record.user.login);
+                try {
+                  await onRemoveFromAll(record.user.login);
+                } finally {
+                  setRemovingUser(null);
+                }
               }}
+              okText="Yes, Remove"
+              cancelText="Cancel"
+              okButtonProps={{ danger: true, loading: removingUser === record.user.login }}
+              icon={<ExclamationCircleOutlined style={{ color: '#ff4d4f' }} />}
             >
-              Remove
-            </Button>
+              <Button
+                danger
+                icon={<DeleteOutlined />}
+                loading={removingUser === record.user.login}
+                size="small"
+                style={{
+                  fontSize: "12px",
+                  height: "32px",
+                }}
+              >
+                Remove
+              </Button>
+            </Popconfirm>
           </Tooltip>
         </Space>
       ),

@@ -8,6 +8,7 @@ import {
   ConfigProvider,
   Button,
   Modal,
+  theme as antdTheme,
 } from "antd";
 import {
   BookOutlined,
@@ -452,6 +453,7 @@ function App() {
     return (
       <ConfigProvider
         theme={{
+          algorithm: mode === "dark" ? antdTheme.darkAlgorithm : antdTheme.defaultAlgorithm,
           token: {
             colorPrimary: theme.colors.primary,
             colorSuccess: theme.colors.success,
@@ -465,6 +467,17 @@ function App() {
           components: {
             Select: {
               optionSelectedBg: "#333333",
+            },
+            Modal: {
+              headerBg: theme.colors.background,
+              contentBg: theme.colors.background,
+            },
+            Tooltip: {
+              colorBgDefault: theme.colors.background,
+              colorTextDefault: theme.colors.text,
+            },
+            Message: {
+              colorBgDefault: theme.colors.background,
             },
           },
         }}
@@ -483,6 +496,7 @@ function App() {
     return (
       <ConfigProvider
         theme={{
+          algorithm: mode === "dark" ? antdTheme.darkAlgorithm : antdTheme.defaultAlgorithm,
           token: {
             colorPrimary: theme.colors.primary,
             colorSuccess: theme.colors.success,
@@ -496,6 +510,17 @@ function App() {
           components: {
             Select: {
               optionSelectedBg: "#333333",
+            },
+            Modal: {
+              headerBg: theme.colors.background,
+              contentBg: theme.colors.background,
+            },
+            Tooltip: {
+              colorBgDefault: theme.colors.background,
+              colorTextDefault: theme.colors.text,
+            },
+            Message: {
+              colorBgDefault: theme.colors.background,
             },
           },
         }}
@@ -519,6 +544,7 @@ function App() {
     return (
       <ConfigProvider
         theme={{
+          algorithm: mode === "dark" ? antdTheme.darkAlgorithm : antdTheme.defaultAlgorithm,
           token: {
             colorPrimary: theme.colors.primary,
             colorSuccess: theme.colors.success,
@@ -532,6 +558,17 @@ function App() {
           components: {
             Select: {
               optionSelectedBg: "#333333",
+            },
+            Modal: {
+              headerBg: theme.colors.background,
+              contentBg: theme.colors.background,
+            },
+            Tooltip: {
+              colorBgDefault: theme.colors.background,
+              colorTextDefault: theme.colors.text,
+            },
+            Message: {
+              colorBgDefault: theme.colors.background,
             },
           },
         }}
@@ -553,6 +590,7 @@ function App() {
   return (
     <ConfigProvider
       theme={{
+        algorithm: mode === "dark" ? antdTheme.darkAlgorithm : antdTheme.defaultAlgorithm,
         token: {
           colorPrimary: theme.colors.primary,
           colorSuccess: theme.colors.success,
@@ -567,6 +605,17 @@ function App() {
         components: {
           Select: {
             optionSelectedBg: "#333333",
+          },
+          Modal: {
+            headerBg: theme.colors.background,
+            contentBg: theme.colors.background,
+          },
+          Tooltip: {
+            colorBgDefault: theme.colors.background,
+            colorTextDefault: theme.colors.text,
+          },
+          Message: {
+            colorBgDefault: theme.colors.background,
           },
         },
       }}

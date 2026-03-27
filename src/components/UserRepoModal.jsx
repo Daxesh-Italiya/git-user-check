@@ -1,13 +1,24 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Modal, Table, Button, Space, Tag, Avatar, Typography, Popconfirm } from 'antd';
 import { DeleteOutlined, ExclamationCircleOutlined, BankOutlined } from '@ant-design/icons';
 
 const { Text, Title } = Typography;
 
 const UserRepoModal = ({ visible, user, onClose, onRemoveFromRepo, onRemoveFromAll, loading }) => {
+  const [removingRepoId, setRemovingRepoId] = useState(null);
+
   if (!user) return null;
 
   const { user: userData, repos } = user;
+
+  const handleRemoveFromRepo = async (owner, repoName, username, repoId) => {
+    setRemovingRepoId(repoId);
+    try {
+      await onRemoveFromRepo(owner, repoName, username);
+    } finally {
+      setRemovingRepoId(null);
+    }
+  };
 
   const columns = [
     {
@@ -49,25 +60,28 @@ const UserRepoModal = ({ visible, user, onClose, onRemoveFromRepo, onRemoveFromA
     {
       title: 'Actions',
       key: 'actions',
-      render: (_, record) => (
-        <Popconfirm
-          title="Remove collaborator"
-          description={`Remove ${userData.login} from ${record.repo.name}?`}
-          onConfirm={() => onRemoveFromRepo(record.repo.owner.login, record.repo.name, userData.login)}
-          okText="Yes"
-          cancelText="No"
-          okButtonProps={{ danger: true }}
-        >
-          <Button
-            type="text"
-            danger
-            icon={<DeleteOutlined />}
-            loading={loading}
+      render: (_, record) => {
+        const isRemoving = removingRepoId === record.repo.id;
+        return (
+          <Popconfirm
+            title="Remove collaborator"
+            description={`Remove ${userData.login} from ${record.repo.name}?`}
+            onConfirm={() => handleRemoveFromRepo(record.repo.owner.login, record.repo.name, userData.login, record.repo.id)}
+            okText="Yes"
+            cancelText="No"
+            okButtonProps={{ danger: true, loading: isRemoving }}
           >
-            Remove
-          </Button>
-        </Popconfirm>
-      ),
+            <Button
+              type="text"
+              danger
+              icon={<DeleteOutlined />}
+              loading={isRemoving}
+            >
+              Remove
+            </Button>
+          </Popconfirm>
+        );
+      },
     },
   ];
 
