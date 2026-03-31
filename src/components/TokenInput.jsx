@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Form, Input, Button, Alert, Card, Typography } from "antd";
+import { LinkedinOutlined, TwitterOutlined } from "@ant-design/icons";
 
 const { Title, Text } = Typography;
 
@@ -223,6 +224,71 @@ const TokenInput = ({ onSubmit, loading }) => {
               </code>
             </span>
           </Text>
+        </div>
+
+        {/* Footer */}
+        <div
+          style={{
+            marginTop: "24px",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            padding: "0 8px",
+          }}
+        >
+          <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
+            <Text
+              style={{
+                fontSize: "12px",
+                color: "var(--color-textTertiary)",
+              }}
+            >
+              Created by
+            </Text>
+            <Text
+              style={{
+                fontSize: "12px",
+                fontWeight: "500",
+                color: "var(--color-textSecondary)",
+              }}
+            >
+              Daxesh Italiya
+            </Text>
+            <a
+              href="https://www.linkedin.com/in/daxesh-italiya/"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                color: "var(--color-textTertiary)",
+                transition: "color 0.2s ease",
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.color = "var(--color-primary)";
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.color = "var(--color-textTertiary)";
+              }}
+            >
+              <LinkedinOutlined style={{ fontSize: "14px" }} />
+            </a>
+            <a
+              href="https://x.com/DaxeshI"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                color: "var(--color-textTertiary)",
+                transition: "color 0.2s ease",
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.color = "var(--color-primary)";
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.color = "var(--color-textTertiary)";
+              }}
+            >
+              <TwitterOutlined style={{ fontSize: "14px" }} />
+            </a>
+          </div>
         </div>
       </Card>
     </div>
