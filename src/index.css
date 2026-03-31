@@ -1,8 +1,7 @@
 @import "tailwindcss" prefix(tw);
 
 /**
- * CSS Custom Properties Default Values (Light Theme)
- * These are overridden by ThemeProvider based on user preference
+ * CSS Custom Properties - Dark Theme (Default)
  */
 
 :root {
@@ -10,56 +9,56 @@
   --color-primary: #35b729;
   --color-primaryHover: #52c41a;
   --color-primaryActive: #237a1b;
-  --color-primaryBg: #e6f9e6;
-  --color-primaryBorder: #91e691;
+  --color-primaryBg: #162312;
+  --color-primaryBorder: #274916;
 
   /* Colors - Secondary */
-  --color-danger: #ff4d4f;
-  --color-dangerBg: #ffebe9;
-  --color-dangerBorder: #ffccc7;
-  --color-success: #52c41a;
-  --color-successBg: #f6ffed;
-  --color-successBorder: #b7eb8f;
-  --color-warning: #faad14;
-  --color-warningBg: #fffbe6;
-  --color-warningBorder: #ffd591;
-  --color-info: #13c2c2;
-  --color-infoBg: #e6fffb;
-  --color-infoBorder: #87e8de;
+  --color-danger: #ff7875;
+  --color-dangerBg: #2f1515;
+  --color-dangerBorder: #58181c;
+  --color-success: #95de64;
+  --color-successBg: #162312;
+  --color-successBorder: #274916;
+  --color-warning: #ffc53d;
+  --color-warningBg: #2b2111;
+  --color-warningBorder: #594214;
+  --color-info: #5cdbd3;
+  --color-infoBg: #112a2f;
+  --color-infoBorder: #174d4a;
 
   /* Colors - Neutrals */
-  --color-background: #ffffff;
-  --color-surface: #fafafa;
-  --color-surfaceHover: #f5f5f5;
-  --color-border: #d9d9d9;
-  --color-borderLight: #f0f0f0;
-  --color-text: #000000d9;
-  --color-textSecondary: #00000073;
-  --color-textTertiary: #00000045;
-  --color-textInverse: #ffffff;
-  --color-disabled: #00000025;
-  --color-bgPrimary: #ffffff;
-  --color-bgSecondary: #fafafa;
-  --color-bgTertiary: #f5f5f5;
+  --color-background: #141414;
+  --color-surface: #1f1f1f;
+  --color-surfaceHover: #262626;
+  --color-border: #434343;
+  --color-borderLight: #303030;
+  --color-text: #ffffffd9;
+  --color-textSecondary: #ffffff73;
+  --color-textTertiary: #ffffff45;
+  --color-textInverse: #000000d9;
+  --color-disabled: #ffffff25;
+  --color-bgPrimary: #141414;
+  --color-bgSecondary: #1f1f1f;
+  --color-bgTertiary: #262626;
 
   /* Colors - Tags & Permissions */
-  --color-orgTag: #722ed1;
-  --color-orgTagBg: #f9f0ff;
+  --color-orgTag: #b37feb;
+  --color-orgTagBg: #1f0e3d;
   --color-personalTag: #35b729;
-  --color-personalTagBg: #e6f9e6;
-  --color-admin: #ff4d4f;
-  --color-adminBg: #ffebe9;
-  --color-maintain: #faad14;
-  --color-maintainBg: #fffbe6;
+  --color-personalTagBg: #162312;
+  --color-admin: #ff7875;
+  --color-adminBg: #2f1515;
+  --color-maintain: #ffc53d;
+  --color-maintainBg: #2b2111;
   --color-push: #35b729;
-  --color-pushBg: #e6f9e6;
-  --color-triage: #13c2c2;
-  --color-triageBg: #e6fffb;
-  --color-pull: #52c41a;
-  --color-pullBg: #f6ffed;
-  --color-public: #52c41a;
-  --color-private: #ff4d4f;
-  --color-internal: #faad14;
+  --color-pushBg: #162312;
+  --color-triage: #5cdbd3;
+  --color-triageBg: #112a2f;
+  --color-pull: #95de64;
+  --color-pullBg: #162312;
+  --color-public: #95de64;
+  --color-private: #ff7875;
+  --color-internal: #ffc53d;
 
   /* Spacing */
   --spacing-xs: 4px;

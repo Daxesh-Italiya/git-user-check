@@ -145,7 +145,7 @@ const TokenInput = ({ onSubmit, loading }) => {
                 borderRadius: "10px",
                 fontSize: "14px",
                 padding: "10px 16px",
-                background: "#000",
+                background: "#141414",
                 backdropFilter: "blur(20px)",
                 WebkitBackdropFilter: "blur(20px)",
                 border: "1px solid rgba(255, 255, 255, 0.2)",

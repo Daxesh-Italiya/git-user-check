@@ -227,12 +227,11 @@ export const darkTheme = {
 };
 
 /**
- * Get theme object based on mode
- * @param {'light' | 'dark'} mode - Theme mode
- * @returns {Object} Theme object with colors and design tokens
+ * Get theme object (always returns dark theme)
+ * @returns {Object} Dark theme object with colors and design tokens
  */
-export const getTheme = (mode = "light") => {
-  return mode === "dark" ? darkTheme : lightTheme;
+export const getTheme = () => {
+  return darkTheme;
 };
 
 /**

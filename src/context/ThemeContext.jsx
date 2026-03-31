@@ -1,35 +1,23 @@
 /**
  * Theme Context & Provider
- * Manages theme state (light/dark) and provides useTheme hook for consuming components
+ * Manages dark theme and provides useTheme hook for consuming components
  */
 
-import React, { createContext, useContext, useEffect, useState } from "react";
+import React, { createContext, useContext, useEffect } from "react";
 import { getTheme, generateCSSVariables } from "../theme/tokens";
 
 const ThemeContext = createContext(null);
 
 /**
  * ThemeProvider Component
- * Wraps the app and manages theme state, persists preference to localStorage
+ * Wraps the app and applies dark theme
  */
 export function ThemeProvider({ children }) {
-  const [mode, setMode] = useState(() => {
-    // Check localStorage first, fallback to system preference, then light
-    const savedMode = localStorage.getItem("app-theme-mode");
-    if (savedMode) return savedMode;
+  const mode = "dark";
 
-    if (
-      window.matchMedia &&
-      window.matchMedia("(prefers-color-scheme: dark)").matches
-    ) {
-      return "dark";
-    }
-    return "light";
-  });
-
-  // Update CSS variables and root element whenever theme changes
+  // Apply CSS variables on mount
   useEffect(() => {
-    const theme = getTheme(mode);
+    const theme = getTheme();
     const cssVars = generateCSSVariables(theme);
 
     // Apply CSS variables to root
@@ -38,23 +26,13 @@ export function ThemeProvider({ children }) {
       root.style.setProperty(key, value);
     });
 
-    // Update root class for Ant Design theme
-    root.classList.remove("theme-light", "theme-dark");
-    root.classList.add(`theme-${mode}`);
-
-    // Save preference
-    localStorage.setItem("app-theme-mode", mode);
-  }, [mode]);
-
-  const toggleTheme = () => {
-    setMode((prev) => (prev === "light" ? "dark" : "light"));
-  };
+    // Set root class for Ant Design theme
+    root.classList.add("theme-dark");
+  }, []);
 
   const value = {
     mode,
-    setMode,
-    toggleTheme,
-    theme: getTheme(mode),
+    theme: getTheme(),
   };
 
   return (

@@ -13,8 +13,6 @@ import {
 import {
   BookOutlined,
   UserOutlined,
-  SunOutlined,
-  MoonOutlined,
   LogoutOutlined,
 } from "@ant-design/icons";
 import { useTheme } from "./context/ThemeContext";
